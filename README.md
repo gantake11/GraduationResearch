@@ -1,3 +1,47 @@
 # GraduationResearch
-# 卒業研究用Google drive フォルダ
-# https://drive.google.com/drive/folders/1i1NP9MP439NgvN-YepQNb7bMb8mXXZPL?usp=drive_link
+卒業研究用Google drive フォルダ
+https://drive.google.com/drive/folders/1i1NP9MP439NgvN-YepQNb7bMb8mXXZPL?usp=drive_link
+卒業研究：ナイーブベイズ分類器
+このプロジェクトは、Javaで書かれたテキスト分類用の機械学習アプリケーションです。ナイーブベイズ分類器を実装し、レビューデータの感情分析を行うことを目的としています。分類器の学習と性能評価の機能が含まれています。
+
+プロジェクトの構成
+java/NaiveBayesClassifier.java: ナイーブベイズ分類アルゴリズムの中核部分を実装しています。モデルの学習と新しいデータの分類を行うメソッドが含まれています。
+
+java/Classifier.java: 分類器のインターフェースを定義しており、学習および分類のメソッドを規定しています。
+
+java/TestClassify1.java: 単一のテストデータを分類器でテストするためのメインプログラムです。ファイルからデータを読み込み、最後のデータをテストデータ、残りを学習データとして使用します。
+
+java/TestClassify2.java: k分割交差検証を実行し、分類器の性能をより厳密に評価するためのメインプログラムです。データをシャッフルし、k回繰り返して全体的な正解率と混同行列を計算します。
+
+java/LearningDataSet.java: ファイルからデータセットを読み込むためのクラスです。
+
+java/LabeledVector.java: 特徴ベクトルとそれに対応する正解ラベルを持つ、個々の学習データを表すデータクラスです。
+
+java/FeatureExtractor.java: レビューテキストから特徴量（特に肯定的または否定的な単語の有無）を抽出するためのクラスです。
+
+データ形式
+アプリケーションは、入力データファイル（例：reviewdata.txtやperson_data.txt）が特定の形式で構成されていることを想定しています。
+
+各データは、評価点数で始まり、その後にレビュー文が続く必要があります。
+
+学習データ書き方.txtに示されている例の形式は以下の通りです。
+
+評価点数
+レビュー文
+評価点数
+レビュー文
+...
+実行方法
+アプリケーションを実行するには、メインプログラムファイル（TestClassify1.javaまたはTestClassify2.java）のいずれかを使用できます。
+
+単一テストの実行:
+
+単一のデータを分類するには、TestClassify1.javaを実行します。
+
+これにより、reviewdata.txtの最後のデータ以外のすべてを使用してナイーブベイズ分類器を学習させ、最後のデータを分類します。
+
+K分割交差検証:
+
+より詳細な評価を行うには、TestClassify2.javaを実行します。
+
+これはperson_data.txtファイルに対して10分割交差検証を行い、混同行列と全体の正解率を出力します。
